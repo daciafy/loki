@@ -2,7 +2,9 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {
 	MatButtonModule,
-	MatCheckboxModule
+	MatCheckboxModule,
+	MatCardModule,
+	MatGridListModule
 } from '@angular/material';
 
 
@@ -11,11 +13,15 @@ import {
 	imports: [
 		CommonModule,
 		MatButtonModule,
-		MatCheckboxModule
+		MatCheckboxModule,
+		MatCardModule,
+		MatGridListModule
 	],
 	exports: [
 		MatButtonModule,
-		MatCheckboxModule
+		MatCheckboxModule,
+		MatCardModule,
+		MatGridListModule
 	]
 })
 export class MaterialModule { }

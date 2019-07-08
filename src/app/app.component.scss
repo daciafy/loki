@@ -1,0 +1,11 @@
+pre {
+	background-color: lightgrey;
+	padding:20px;
+}
+.container {
+	display:grid;
+	grid-template-columns: minmax(300px, 1fr) minmax(240px, 1fr);
+}
+.sm {
+	grid-template-columns: minmax(240px, 1fr)
+}
