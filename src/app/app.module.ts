@@ -6,17 +6,21 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { MaterialModule } from './material/material.module';
 import { AppComponent } from './app.component';
+import { CpanelComponent } from './cpanel/cpanel.component';
+import { LayoutModule } from '@angular/cdk/layout';
 
 @NgModule({
 	declarations: [
-		AppComponent
+		AppComponent,
+		CpanelComponent
 	],
 	imports: [
 		BrowserModule,
 		FormsModule,
 		AppRoutingModule,
 		BrowserAnimationsModule,
-		MaterialModule
+		MaterialModule,
+		LayoutModule
 	],
 	providers: [],
 	bootstrap: [AppComponent]

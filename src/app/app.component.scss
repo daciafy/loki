@@ -2,10 +2,33 @@ pre {
 	background-color: lightgrey;
 	padding:20px;
 }
+@mixin spans($size) {
+	@for $i from 2 through 12 {
+		.col-#{$size}-#{$i} {
+			grid-column: span $i;
+		}
+	}
+}
+
 .container {
 	display:grid;
-	grid-template-columns: minmax(300px, 1fr) minmax(240px, 1fr);
-}
-.sm {
-	grid-template-columns: minmax(240px, 1fr)
+	grid-column-gap: 15px;
+	grid-template-columns: repeat(auto-fit, minmax(240,1fr));
+	grid-row-gap: 50px;
+	&.xs {
+		grid-template-columns: 1fr;
+		@include spans("xs");
+	}
+	&.sm {
+		grid-template-columns: repeat(3,minmax(75px,1fr));
+		@include spans("sm");
+	}
+	&.md {
+		grid-template-columns: repeat(6,1fr);
+		@include spans("md");
+	}
+	&.lg {
+		grid-template-columns: repeat(12,1fr);
+		@include spans("lg");
+	}
 }

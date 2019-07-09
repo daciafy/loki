@@ -15,7 +15,7 @@ export interface Tile {
 })
 export class AppComponent {
 	title = 'loki';
-
+	windowSize = "lg";
 	rowHt = 300;
 
 	tiles: Tile[] = [
@@ -27,14 +27,27 @@ export class AppComponent {
 
 	constructor(breakpointObserver: BreakpointObserver) {
 		breakpointObserver.observe([
-			Breakpoints.Handset,
-			Breakpoints.Tablet,
-			Breakpoints.Web
+			Breakpoints.HandsetPortrait,
+			Breakpoints.TabletLandscape,
+			Breakpoints.WebLandscape
 		]).subscribe(result => {
 			if (result.matches) {
 				let bp = result.breakpoints;
 				for (let obj in result.breakpoints){
-					if(bp[obj]){console.log(obj)}
+					if(bp[obj]){
+						switch(obj){
+							case "(max-width: 599.99px) and (orientation: portrait)":
+								this.windowSize = "sm";
+								break;
+							case "(min-width: 960px) and (max-width: 1279.99px) and (orientation: landscape)":
+									this.windowSize = "md";
+									break;
+							case "(min-width: 1280px) and (orientation: landscape)":
+									this.windowSize = "lg";
+									break;
+						}
+						console.log(this.windowSize)
+					}
 				}
 			}
 		});
