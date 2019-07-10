@@ -7,7 +7,6 @@ import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 	styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-	title = 'loki';
 
 
 	constructor() {

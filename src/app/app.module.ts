@@ -9,13 +9,15 @@ import { AppComponent } from './app.component';
 import { CpanelComponent } from './cpanel/cpanel.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { LayoutsComponent } from './layouts/layouts.component';
+import { HomeComponent } from './home/home.component';
 
 
 @NgModule({
 	declarations: [
 		AppComponent,
 		CpanelComponent,
-		LayoutsComponent
+		LayoutsComponent,
+		HomeComponent
 	],
 	imports: [
 		BrowserModule,
