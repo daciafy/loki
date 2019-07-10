@@ -9,6 +9,7 @@ import { AppComponent } from './app.component';
 import { CpanelComponent } from './cpanel/cpanel.component';
 import { LayoutModule } from '@angular/cdk/layout';
 
+
 @NgModule({
 	declarations: [
 		AppComponent,
@@ -20,7 +21,7 @@ import { LayoutModule } from '@angular/cdk/layout';
 		AppRoutingModule,
 		BrowserAnimationsModule,
 		MaterialModule,
-		LayoutModule
+		LayoutModule,
 	],
 	providers: [],
 	bootstrap: [AppComponent]
