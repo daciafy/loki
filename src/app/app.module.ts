@@ -8,12 +8,14 @@ import { MaterialModule } from './material/material.module';
 import { AppComponent } from './app.component';
 import { CpanelComponent } from './cpanel/cpanel.component';
 import { LayoutModule } from '@angular/cdk/layout';
+import { LayoutsComponent } from './layouts/layouts.component';
 
 
 @NgModule({
 	declarations: [
 		AppComponent,
-		CpanelComponent
+		CpanelComponent,
+		LayoutsComponent
 	],
 	imports: [
 		BrowserModule,
