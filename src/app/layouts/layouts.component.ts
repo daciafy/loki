@@ -23,24 +23,29 @@ export class LayoutsComponent implements OnInit {
 		{ text: 'Three', cols: 1, rows: 1, color: 'lightpink' },
 		{ text: 'Four', cols: 2, rows: 1, color: '#DDBDF1' },
 	];
-	constructor(breakpointObserver: BreakpointObserver) {
+	constructor(public breakpointObserver: BreakpointObserver) {
 		breakpointObserver.observe([
-			Breakpoints.HandsetPortrait,
-			Breakpoints.TabletLandscape,
-			Breakpoints.WebLandscape
+			'(max-width: 486px)',
+			'(min-width: 487px) and (max-width: 640px)',
+			'(min-width: 641px) and (max-width: 960px)',
+			'(min-width: 961px)',
 		]).subscribe(result => {
+			console.log(result)
 			if (result.matches) {
 				let bp = result.breakpoints;
 				for (let obj in result.breakpoints) {
 					if (bp[obj]) {
 						switch (obj) {
-							case "(max-width: 599.99px) and (orientation: portrait)":
+							case "(max-width: 486px)":
+								this.windowSize = "xs";
+								break;
+							case "(min-width: 487px) and (max-width: 640px)":
 								this.windowSize = "sm";
 								break;
-							case "(min-width: 960px) and (max-width: 1279.99px) and (orientation: landscape)":
+							case "(min-width: 641px) and (max-width: 960px)":
 								this.windowSize = "md";
 								break;
-							case "(min-width: 1280px) and (orientation: landscape)":
+							case "(min-width: 961px)":
 								this.windowSize = "lg";
 								break;
 						}

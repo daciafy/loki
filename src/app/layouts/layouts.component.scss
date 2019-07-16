@@ -3,32 +3,61 @@ pre {
 	padding:20px;
 }
 @mixin spans($size) {
-	@for $i from 2 through 12 {
+	@for $i from 1 through 12 {
 		.col-#{$size}-#{$i} {
 			grid-column: span $i;
 		}
 	}
 }
 
-.container {
-	display:grid;
-	grid-column-gap: 15px;
-	grid-template-columns: repeat(auto-fit, minmax(240,1fr));
-	grid-row-gap: 50px;
-	&.xs {
-		grid-template-columns: repeat(auto-fit,minmax(1fr,1fr));
+
+@media (min-width: 576px){
+	.container {
+		$gap: 15;
+		$col: 3;
+		$width: 576;
+		display:grid;
+		grid-column-gap: $gap+px;
+		grid-template-columns: repeat(auto-fill, minmax((($width - ($col - 1) * $gap) / $col)+px,1fr));
+		grid-row-gap: 50px;
 		@include spans("xs");
 	}
-	&.sm {
-		grid-template-columns: repeat(auto-fit,minmax(75px,1fr));
+}
+@media (min-width: 768px){
+	.container {
+		$gap: 15;
+		$col: 12;
+		$width: 768;
+		display:grid;
+		grid-column-gap: $gap+px;
+		grid-template-columns: repeat($col, minmax((($width - ($col - 1) * $gap) / $col)+px,1fr));
+		grid-row-gap: 50px;
 		@include spans("sm");
 	}
-	&.md {
-		grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+}
+@media (min-width: 992px){
+	.container {
+		$gap: 15;
+		$col: 12;
+		$width: 992;
+		display:grid;
+		grid-column-gap: $gap+px;
+		grid-template-columns: repeat($col, minmax((($width - ($col - 1) * $gap) / $col)+px,1fr));
+		grid-row-gap: 50px;
 		@include spans("md");
 	}
-	&.lg {
-		grid-template-columns: repeat(auto-fit,minmax(350px,1fr));
+}
+@media (min-width: 1200px){
+	.container {
+		$gap: 40;
+		$col: 12;
+		$width: 1200;
+		display:grid;
+		grid-column-gap: $gap+px;
+		grid-template-columns: repeat($col, minmax((($width - ($col - 1) * $gap) / $col)+px,1fr));
+		grid-row-gap: 50px;
 		@include spans("lg");
 	}
 }
+
+
