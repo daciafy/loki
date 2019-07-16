@@ -2,6 +2,7 @@ pre {
 	background-color: lightgrey;
 	padding:20px;
 }
+
 @mixin spans($size) {
 	@for $i from 1 through 12 {
 		.col-#{$size}-#{$i} {
@@ -9,8 +10,6 @@ pre {
 		}
 	}
 }
-
-
 @media (min-width: 576px){
 	.container {
 		$gap: 15;

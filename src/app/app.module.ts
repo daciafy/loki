@@ -10,6 +10,7 @@ import { CpanelComponent } from './cpanel/cpanel.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { LayoutsComponent } from './layouts/layouts.component';
 import { HomeComponent } from './home/home.component';
+import { ListsViewComponent } from './lists-view/lists-view.component';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { HomeComponent } from './home/home.component';
 		AppComponent,
 		CpanelComponent,
 		LayoutsComponent,
-		HomeComponent
+		HomeComponent,
+		ListsViewComponent
 	],
 	imports: [
 		BrowserModule,

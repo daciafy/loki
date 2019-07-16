@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef } from '@angular/core';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 
 export interface Tile {
@@ -58,5 +58,7 @@ export class LayoutsComponent implements OnInit {
 
 	ngOnInit() {
 	}
-
+	scrollTo(elm: HTMLElement) {
+		elm.scrollIntoView({behavior:"smooth"});
+	}
 }

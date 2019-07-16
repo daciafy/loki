@@ -1,0 +1,25 @@
+<h3>Nav lists</h3>
+<div class="container"><mat-nav-list class="gItem">
+	<mat-list-item  *ngFor="let link of links">
+		<a matLine [routerLink]="'/'+link">{{ link }}</a>
+		<button mat-icon-button (click)="showInfo(link)">
+			<mat-icon>info</mat-icon>
+		</button>
+	</mat-list-item>
+ </mat-nav-list>
+</div>
+
+<h3>Selector Lists</h3>
+<div class="container">
+	<div class="gItem">
+		<mat-selection-list #shoes>
+			<mat-list-option *ngFor="let shoe of typesOfShoes">
+			  {{shoe}}
+			</mat-list-option>
+		 </mat-selection-list>
+
+		 <p>
+			Options selected: {{shoes.selectedOptions.selected.length}}
+		 </p>
+	</div>
+</div>
