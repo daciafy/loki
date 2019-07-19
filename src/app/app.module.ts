@@ -11,6 +11,8 @@ import { LayoutModule } from '@angular/cdk/layout';
 import { LayoutsComponent } from './layouts/layouts.component';
 import { HomeComponent } from './home/home.component';
 import { ListsViewComponent } from './lists-view/lists-view.component';
+import { AppBarBottomComponent } from './comParts/app-bar-bottom/app-bar-bottom.component';
+import { ComPartsComponent } from './comParts/com-parts.component';
 
 
 @NgModule({
@@ -19,7 +21,9 @@ import { ListsViewComponent } from './lists-view/lists-view.component';
 		CpanelComponent,
 		LayoutsComponent,
 		HomeComponent,
-		ListsViewComponent
+		ListsViewComponent,
+		AppBarBottomComponent,
+		ComPartsComponent
 	],
 	imports: [
 		BrowserModule,

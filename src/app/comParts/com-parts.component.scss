@@ -1,8 +1,3 @@
-pre {
-	background-color: lightgrey;
-	padding:20px;
-}
-
 @mixin spans($size) {
 	@for $i from 1 through 12 {
 		.col-#{$size}-#{$i} {
@@ -14,7 +9,7 @@ pre {
 	.container {
 		$gap: 15;
 		$col: 3;
-		$width: 320;
+		$width: 576;
 		display:grid;
 		grid-column-gap: $gap+px;
 		grid-template-columns: repeat($col, minmax(($width / $col - $gap)+px,1fr));
@@ -22,7 +17,7 @@ pre {
 		@include spans("xs");
 	}
 }
-@media (min-width: 577px){
+@media (min-width: 576px){
 	.container {
 		$gap: 15;
 		$col: 12;

@@ -3,13 +3,15 @@ import { Routes, RouterModule } from '@angular/router';
 import { LayoutsComponent } from './layouts/layouts.component';
 import { HomeComponent } from './home/home.component';
 import { ListsViewComponent } from './lists-view/lists-view.component';
+import { ComPartsComponent } from './comParts/com-parts.component';
 
 
 const routes: Routes = [
 	{path:'', component:HomeComponent},
 	{path:'home', component:HomeComponent},
 	{path:'layouts', component:LayoutsComponent},
-	{path:'listsView', component:ListsViewComponent}
+	{path:'listsView', component:ListsViewComponent},
+	{path:'comparts', component:ComPartsComponent}
 ];
 
 @NgModule({

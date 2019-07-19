@@ -1,0 +1,13 @@
+.bar {
+	display:grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	padding:0;
+	width:100%;
+
+	:nth-child(2n) {
+		justify-self:center;
+		position: relative;
+		top:-18px;
+
+	}
+}
