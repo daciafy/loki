@@ -1,68 +1,110 @@
 pre {
-	background-color: lightgrey;
-	padding:20px;
+   background-color: lightgrey;
+   padding: 20px;
 }
 
 @mixin spans($size) {
-	@for $i from 1 through 12 {
-		 .col-#{$size}-#{$i} {
-			  grid-column: span $i;
-			  @include offsets("xs", $i);
+   @for $i from 1 through 12 {
+      .col-#{$size}-#{$i} {
+         grid-column: span $i;
+         @include offsets("xs", $i);
 
-			  @media (min-width: 576px) {
-					@include offsets("sm", $i);
-			  }
+         @media (min-width: 576px) {
+            @include offsets("sm", $i);
+         }
 
-			  @media (min-width: 992px) {
-					@include offsets("md", $i);
-			  }
+         @media (min-width: 992px) {
+            @include offsets("md", $i);
+         }
 
-			  @media (min-width: 1200px) {
-					@include offsets("lg", $i);
-			  }
-		 }
-	}
+         @media (min-width: 1200px) {
+            @include offsets("lg", $i);
+         }
+      }
+   }
 }
 
 @mixin offsets($size, $i) {
-	@for $s from 1 through 12 {
-		 &.col-#{$size}-start-#{$s} {
-			  grid-column: $s / span $i
-		 }
-	}
+   @for $s from 1 through 12 {
+      &.col-#{$size}-start-#{$s} {
+         grid-column: $s / span $i
+      }
+   }
 }
 
 $col: 12;
 
 .container {
-	$gap: 5;
-	display: grid;
-	grid-column-gap: $gap+px;
-	grid-template-columns: repeat($col, 1fr);
-	grid-row-gap: 50px;
-	@include spans("xs");
+   $gap: 5;
+   display: grid;
+   grid-column-gap: $gap+px;
+   grid-template-columns: repeat($col, 1fr);
+   grid-row-gap: 50px;
+   @include spans("xs");
 }
 
 @media (min-width: 576px) {
-	.container {
-		 $gap: 10;
-		 grid-column-gap: $gap+px;
-		 @include spans("sm");
-	}
+   .container {
+      $gap: 10;
+      grid-column-gap: $gap+px;
+      @include spans("sm");
+   }
 }
 
 @media (min-width: 992px) {
-	.container {
-		 $gap: 15;
-		 grid-column-gap: $gap+px;
-		 @include spans("md");
-	}
+   .container {
+      $gap: 15;
+      grid-column-gap: $gap+px;
+      @include spans("md");
+   }
 }
 
 @media (min-width: 1200px) {
-	.container {
-		 $gap: 40;
-		 grid-column-gap: $gap+px;
-		 @include spans("lg");
-	}
+   .container {
+      $gap: 40;
+      grid-column-gap: $gap+px;
+      @include spans("lg");
+   }
+}
+
+$grid_gutter: 30px;
+$screen_viewport_xs: 0px;
+$screen_viewport_sm: 600px;
+$screen_viewport_md: 768px;
+$screen_viewport_lg: 992px;
+$screen_viewport_xl: 1260px;
+
+$grid_arr: ((xs, $screen_viewport_xs),
+   (sm, $screen_viewport_sm),
+   (md, $screen_viewport_md),
+   (lg, $screen_viewport_lg),
+   (xl, $screen_viewport_xl));
+
+.row {
+   display: grid;
+   grid-template-columns: repeat(12, 1fr);
+   grid-gap: $grid_gutter;
+
+   @each $label,
+   $breakpoint in $grid_arr {
+      @media (min-width: #{$breakpoint}) {
+         @for $i from 1 through 12 {
+            .col-#{$label}-#{$i} {
+               grid-column: span #{$i};
+
+               @for $y from 0 through 12 {
+						@if $y == 0 {
+							&.col-#{$label}-start-x {
+								grid-column: span #{$i};
+							}
+						} @else {
+							&.col-#{$label}-start-#{$y} {
+								grid-column: #{$y} / span #{$i};
+							}
+						}
+               }
+            }
+         }
+      }
+   }
 }
