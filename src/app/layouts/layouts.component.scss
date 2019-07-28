@@ -68,6 +68,7 @@ $col: 12;
 }
 
 $grid_gutter: 30px;
+$grid_cols: 12;
 $screen_viewport_xs: 0px;
 $screen_viewport_sm: 600px;
 $screen_viewport_md: 768px;
@@ -80,19 +81,52 @@ $grid_arr: ((xs, $screen_viewport_xs),
    (lg, $screen_viewport_lg),
    (xl, $screen_viewport_xl));
 
-.row {
+.fxrow {
+	display: flex;
+	flex-flow: row wrap;
+	// flex-direction: row;
+	// flex-wrap: wrap;
+
+
+	@each $label,
+	$breakpoint in $grid_arr {
+		@media (min-width: #{$breakpoint}) {
+			@for $i from 1 through $grid_cols {
+				.col-#{$label}-#{$i} {
+					$wp: (($i/$grid_cols)*100%);
+					width: calc(#{$wp} - #{$grid_gutter});
+					padding:$grid_gutter / 2;
+
+					@for $y from 0 through $grid_cols {
+						@if $y == 0 {
+							&.col-#{$label}-offset-x {
+								margin-left: 0px;
+							}
+						} @else {
+							&.col-#{$label}-offset-#{$y} {
+								margin-left: ($y/$grid_cols)*100%;
+							}
+						}
+               }
+				}
+			}
+		}
+	}
+}
+
+.gdrow {
    display: grid;
-   grid-template-columns: repeat(12, 1fr);
+   grid-template-columns: repeat(#{$grid_cols}, 1fr);
    grid-gap: $grid_gutter;
 
    @each $label,
    $breakpoint in $grid_arr {
       @media (min-width: #{$breakpoint}) {
-         @for $i from 1 through 12 {
+         @for $i from 1 through $grid_cols {
             .col-#{$label}-#{$i} {
                grid-column: span #{$i};
 
-               @for $y from 0 through 12 {
+               @for $y from 0 through $grid_cols {
 						@if $y == 0 {
 							&.col-#{$label}-start-x {
 								grid-column: span #{$i};
