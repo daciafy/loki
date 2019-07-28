@@ -8,21 +8,6 @@ export interface Tile {
 	text: string;
 }
 
-export class TileCstm {
-	public type: string;
-	public color: string;
-	public colSpan: number;
-	public rowSpan: number;
-	public text?: string;
-
-	constructor(type:string = "col",colSpan:number = 1, rowSpan:number = 1,color:string = "red"){
-		this.type = type;
-		this.color = color;
-		this.colSpan = colSpan;
-		this.rowSpan = rowSpan;
-	}
-}
-
 @Component({
 	selector: 'app-layouts',
 	templateUrl: './layouts.component.html',
@@ -31,15 +16,7 @@ export class TileCstm {
 export class LayoutsComponent implements OnInit {
 	windowSize = "lg";
 	rowHt = 300;
-	tilesCstm : TileCstm[] = [
-		new TileCstm(),
-		new TileCstm(),
-		new TileCstm(),
-		new TileCstm(),
-		new TileCstm(),
-		new TileCstm(),
 
-	]
 	tiles: Tile[] = [
 		{ text: 'One', cols: 3, rows: 1, color: 'lightblue' },
 		{ text: 'Two', cols: 1, rows: 2, color: 'lightgreen' },
@@ -80,7 +57,6 @@ export class LayoutsComponent implements OnInit {
 	}
 
 	ngOnInit() {
-		console.log(this.tilesCstm,new TileCstm("col"))
 	}
 	scrollTo(elm: HTMLElement) {
 		elm.scrollIntoView({behavior:"smooth"});

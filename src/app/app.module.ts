@@ -13,7 +13,7 @@ import { HomeComponent } from './home/home.component';
 import { ListsViewComponent } from './lists-view/lists-view.component';
 import { AppBarBottomComponent } from './comParts/app-bar-bottom/app-bar-bottom.component';
 import { ComPartsComponent } from './comParts/com-parts.component';
-import {FlexLayoutModule} from '@angular/flex-layout';
+
 
 @NgModule({
 	declarations: [
@@ -23,7 +23,7 @@ import {FlexLayoutModule} from '@angular/flex-layout';
 		HomeComponent,
 		ListsViewComponent,
 		AppBarBottomComponent,
-		ComPartsComponent,
+		ComPartsComponent
 	],
 	imports: [
 		BrowserModule,
@@ -32,7 +32,6 @@ import {FlexLayoutModule} from '@angular/flex-layout';
 		BrowserAnimationsModule,
 		MaterialModule,
 		LayoutModule,
-		FlexLayoutModule
 	],
 	providers: [],
 	bootstrap: [AppComponent]
