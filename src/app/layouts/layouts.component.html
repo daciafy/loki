@@ -9,7 +9,11 @@
 	<li>Bootstrap</li>
 </ul>
 <hr>
-
+<h3>Angular Flex-layout module</h3>
+<div fxLayout="row wrap" fxLayoutGap="10px">
+	<div [fxFlexOffset.xs]="(4/12)*100"[fxFlex.xs]="33">Hello</div>
+	<div>Hi</div>
+</div>
 <h4>Material Grid list component</h4>
 <pre>
 	https://stackoverflow.com/questions/48493652/angular-5-mat-grid-list-responsive
