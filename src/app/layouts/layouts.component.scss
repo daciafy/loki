@@ -84,6 +84,8 @@ $grid_arr: ((xs, $screen_viewport_xs),
 .fxrow {
 	display: flex;
 	flex-flow: row wrap;
+	margin-left:($grid_gutter / 2)*-1;
+	margin-right:($grid_gutter / 2)*-1;
 	// flex-direction: row;
 	// flex-wrap: wrap;
 
@@ -92,7 +94,7 @@ $grid_arr: ((xs, $screen_viewport_xs),
 	$breakpoint in $grid_arr {
 		@media (min-width: #{$breakpoint}) {
 			@for $i from 1 through $grid_cols {
-				.col-#{$label}-#{$i} {
+				>.col-#{$label}-#{$i} {
 					$wp: (($i/$grid_cols)*100%);
 					width: calc(#{$wp} - #{$grid_gutter});
 					padding:$grid_gutter / 2;
@@ -123,7 +125,7 @@ $grid_arr: ((xs, $screen_viewport_xs),
    $breakpoint in $grid_arr {
       @media (min-width: #{$breakpoint}) {
          @for $i from 1 through $grid_cols {
-            .col-#{$label}-#{$i} {
+            >.col-#{$label}-#{$i} {
                grid-column: span #{$i};
 
                @for $y from 0 through $grid_cols {
