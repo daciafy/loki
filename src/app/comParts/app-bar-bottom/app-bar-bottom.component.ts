@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-app-bar-bottom',
+  selector: 'app-bar-bottom',
   templateUrl: './app-bar-bottom.component.html',
   styleUrls: ['./app-bar-bottom.component.scss']
 })

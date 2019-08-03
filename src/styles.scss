@@ -4,7 +4,7 @@ body {
 	margin: 0px;
 }
 
-$grid_gutter: 30px;
+$grid_gutter: 15px;
 $grid_cols: 12;
 $screen_viewport_xs: 0px;
 $screen_viewport_sm: 600px;
@@ -21,8 +21,10 @@ $grid_arr: ((xs, $screen_viewport_xs),
 .fxrow {
 	display: flex;
 	flex-flow: row wrap;
-	margin-left:($grid_gutter / 2)*-1;
-	margin-right:($grid_gutter / 2)*-1;
+	margin-left: $grid_gutter * -1;
+	// justify-content: ;
+	/* margin-left:($grid_gutter / 2)*-1;
+	margin-right:($grid_gutter / 2)*-1; */
 	// flex-direction: row;
 	// flex-wrap: wrap;
 
@@ -34,7 +36,9 @@ $grid_arr: ((xs, $screen_viewport_xs),
 				>.col-#{$label}-#{$i} {
 					$wp: (($i/$grid_cols)*100%);
 					width: calc(#{$wp} - #{$grid_gutter});
-					padding:$grid_gutter / 2;
+					// padding:$grid_gutter / 2;
+					padding-left:$grid_gutter;
+					padding-bottom:$grid_gutter;
 
 					@for $y from 0 through $grid_cols {
 						@if $y == 0 {
