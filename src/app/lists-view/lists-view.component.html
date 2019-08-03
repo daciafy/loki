@@ -1,12 +1,13 @@
 <h3>Nav lists</h3>
-<div class="container"><mat-nav-list class="gItem">
-	<mat-list-item  *ngFor="let link of links">
-		<a matLine [routerLink]="'/'+link">{{ link }}</a>
-		<button mat-icon-button (click)="showInfo(link)">
-			<mat-icon>info</mat-icon>
-		</button>
-	</mat-list-item>
- </mat-nav-list>
+<div class="container">
+	<mat-nav-list class="gItem">
+		<mat-list-item *ngFor="let link of links">
+			<a matLine [routerLink]="'/'+link">{{ link }}</a>
+			<button mat-icon-button (click)="showInfo(link)">
+				<mat-icon>info</mat-icon>
+			</button>
+		</mat-list-item>
+	</mat-nav-list>
 </div>
 
 <h3>Selector Lists</h3>
@@ -14,12 +15,24 @@
 	<div class="gItem">
 		<mat-selection-list #shoes>
 			<mat-list-option *ngFor="let shoe of typesOfShoes">
-			  {{shoe}}
+				{{shoe}}
 			</mat-list-option>
-		 </mat-selection-list>
+		</mat-selection-list>
 
-		 <p>
+		<p>
 			Options selected: {{shoes.selectedOptions.selected.length}}
-		 </p>
+		</p>
+	</div>
+</div>
+<div class="fxrow">
+	<div class="col-xs-4">
+		TimePicker
+	</div>
+	<div class="col-xs-8">
+		<mat-form-field>
+			<input matInput [matDatepicker]="myDatepicker">
+			<mat-datepicker-toggle matSuffix [for]="myDatepicker"></mat-datepicker-toggle>
+			<mat-datepicker #myDatepicker></mat-datepicker>
+		</mat-form-field>
 	</div>
 </div>

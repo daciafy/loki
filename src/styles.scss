@@ -4,7 +4,7 @@ body {
 	margin: 0px;
 }
 
-$grid_gutter: 15px;
+$grid_gutter: 30px;
 $grid_cols: 12;
 $screen_viewport_xs: 0px;
 $screen_viewport_sm: 600px;
@@ -23,7 +23,8 @@ $grid_arr: ((xs, $screen_viewport_xs),
 	flex-flow: row wrap;
 	margin-left: $grid_gutter * -1;
 	// justify-content: ;
-	/* margin-left:($grid_gutter / 2)*-1;
+	// margin-left:($grid_gutter / 2)*-1;
+	/*
 	margin-right:($grid_gutter / 2)*-1; */
 	// flex-direction: row;
 	// flex-wrap: wrap;
